@@ -8,7 +8,6 @@ const SYSTEM_BASE_OPTION_DEFAULTS = {
   hideWhenZero: false,
   text: "-",
   icon: "",
-  responsivePriority: 50,
 } as const;
 
 // The options-relevant slice of a spec, derived from WidgetSpec (excludes render so concrete

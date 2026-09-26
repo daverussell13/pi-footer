@@ -55,15 +55,6 @@ describe("config", () => {
     expect(normalizeConfig({ iconMode: "nonsense" }).iconMode).toBe(DEFAULT_CONFIG.iconMode);
   });
 
-  it("normalizes responsive behavior with a backward-compatible default", () => {
-    expect(normalizeConfig({}).terminal.responsiveMode).toBe("truncate");
-    expect(normalizeConfig({ terminal: { responsiveMode: "hide-low-priority" } }).terminal.responsiveMode).toBe(
-      "hide-low-priority",
-    );
-    expect(normalizeConfig({ terminal: { responsiveMode: "invalid" } }).terminal.responsiveMode).toBe(
-      "truncate",
-    );
-  });
   it("applies presets", () => {
     const config = configWithPreset(DEFAULT_CONFIG, "compact");
     expect(config.lines[0]?.map((widget) => widget.type)).toEqual([

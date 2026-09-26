@@ -7,7 +7,7 @@ export const InputSpeedWidget = defineWidget({
   category: "Tokens",
   description: "Average input tokens per minute",
   dependencies: ["metrics"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
+  baseOptions: ["raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [tokenFormatStyleProperty()],
   icons: { emoji: "⏫", nerd: "", text: "in/min" },

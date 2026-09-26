@@ -7,7 +7,7 @@ export const LastActivityWidget = defineWidget({
   category: "Session",
   description: "Most recent session entry time",
   dependencies: ["metrics"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "🕘", nerd: "󱑃", text: "last" },

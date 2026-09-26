@@ -73,7 +73,7 @@ export const ContextBarWidget = defineWidget({
   category: "Tokens",
   description: "Progress bar for context usage",
   dependencies: ["contextTokens", "contextMaxTokens"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [tokenFormatStyleProperty(), contextBarModeProperty, ...contextColorProperties()],
   icons: { emoji: "📊", nerd: "󰍛", text: "Context:" },

@@ -7,7 +7,7 @@ export const ElapsedWidget = defineWidget({
   category: "Session",
   description: "Time between first and last recorded session entry",
   dependencies: ["metrics"],
-  baseOptions: ["responsivePriority", "raw", "icon"],
+  baseOptions: ["raw", "icon"],
   baseOptionDefaults: {},
   properties: [],
   icons: { emoji: "⏱️", nerd: "󱎫", text: "span" },

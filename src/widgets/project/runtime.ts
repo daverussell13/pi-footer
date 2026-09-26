@@ -196,7 +196,7 @@ export const RuntimeWidget = defineWidget({
   category: "Project",
   description: "Current project runtime (e.g. Bun, Python, Go, Rust)",
   dependencies: ["cwd"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { hideWhenEmpty: true },
   properties: [
     {

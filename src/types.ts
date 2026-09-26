@@ -34,12 +34,8 @@ export interface WidgetOptions extends WidgetStyle {
 export const TERMINAL_WIDTH_MODE_VALUES = ["full", "full-minus-40"] as const;
 export type TerminalWidthMode = (typeof TERMINAL_WIDTH_MODE_VALUES)[number];
 
-export const RESPONSIVE_MODE_VALUES = ["truncate", "hide-low-priority"] as const;
-export type ResponsiveMode = (typeof RESPONSIVE_MODE_VALUES)[number];
-
 export interface TerminalOptions {
   widthMode: TerminalWidthMode;
-  responsiveMode: ResponsiveMode;
   colorLevel: ColorLevel;
 }
 

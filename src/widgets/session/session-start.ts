@@ -7,7 +7,7 @@ export const SessionStartWidget = defineWidget({
   category: "Session",
   description: "First session entry time",
   dependencies: ["metrics"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "🚀", nerd: "󱑂", text: "started" },

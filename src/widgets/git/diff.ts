@@ -6,7 +6,7 @@ export const GitDiffWidget = defineWidget({
   category: "Git",
   description: "Insertion/deletion diff summary",
   dependencies: ["git"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [
     {

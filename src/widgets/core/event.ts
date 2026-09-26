@@ -7,7 +7,7 @@ export const EventValueWidget = defineWidget({
   category: "Core",
   description: "Value updated by other extensions through pi.events",
   dependencies: ["eventWidgets"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { hideWhenEmpty: true },
   properties: [
     {

@@ -19,19 +19,13 @@ import {
 import { SEPARATOR_VALUES, type SeparatorStyle } from "./separators.js";
 import type {
   IconMode,
-  ResponsiveMode,
   StatuslineConfig,
   StatuslineSettings,
   TerminalOptions,
   TerminalWidthMode,
   WidgetEntry,
 } from "./types.js";
-import {
-  ICON_MODE_VALUES,
-  isRecord,
-  RESPONSIVE_MODE_VALUES,
-  TERMINAL_WIDTH_MODE_VALUES,
-} from "./types.js";
+import { ICON_MODE_VALUES, isRecord, TERMINAL_WIDTH_MODE_VALUES } from "./types.js";
 import { registry, type WidgetType } from "./widgets/registry.js";
 
 export const STATUS_KEY = "pi-footer";
@@ -42,7 +36,6 @@ const SEPARATORS = new Set<SeparatorStyle>(SEPARATOR_VALUES);
 
 const DEFAULT_TERMINAL_OPTIONS: TerminalOptions = {
   widthMode: "full",
-  responsiveMode: "truncate",
   colorLevel: "ansi256",
 };
 
@@ -184,11 +177,6 @@ function normalizeTerminalOptions(
       TERMINAL_WIDTH_MODE_VALUES.includes(value.widthMode as TerminalWidthMode)
         ? (value.widthMode as TerminalWidthMode)
         : base.widthMode,
-    responsiveMode:
-      typeof value.responsiveMode === "string" &&
-      RESPONSIVE_MODE_VALUES.includes(value.responsiveMode as ResponsiveMode)
-        ? (value.responsiveMode as ResponsiveMode)
-        : base.responsiveMode,
     colorLevel:
       typeof value.colorLevel === "string" &&
       COLOR_LEVEL_VALUES.includes(value.colorLevel as ColorLevel)

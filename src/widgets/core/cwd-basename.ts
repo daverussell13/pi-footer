@@ -8,7 +8,7 @@ export const CwdBasenameWidget = defineWidget({
   category: "Core",
   description: "Current directory name",
   dependencies: ["cwd"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "📂", nerd: "", text: "dir" },

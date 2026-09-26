@@ -475,53 +475,6 @@ describe("renderStatusline", () => {
     expect(line).toContain("cost $0.1234");
   });
 
-  it("hides low-priority widgets when responsive behavior is enabled", () => {
-    const line = renderStatusline(
-      {
-        ...plainConfig,
-        iconMode: "text",
-        terminal: { ...plainConfig.terminal, responsiveMode: "hide-low-priority" },
-        lines: [
-          [
-            registry.createEntry("model", { responsivePriority: 100 }),
-            registry.createEntry("git-branch", { responsivePriority: 80 }),
-            registry.createEntry("cost", { responsivePriority: 10 }),
-          ],
-        ],
-      },
-      data,
-      45,
-    );
-    expect(line).toContain("model claude-sonnet-4-5");
-    expect(line).toContain("git main");
-    expect(line).not.toContain("cost");
-    expect(line).not.toContain("…");
-  });
-  it("removes explicit separators attached to hidden widgets", () => {
-    const line = renderStatusline(
-      {
-        ...plainConfig,
-        iconMode: "text",
-        separator: "none",
-        terminal: { ...plainConfig.terminal, responsiveMode: "hide-low-priority" },
-        lines: [
-          [
-            registry.createEntry("model", { responsivePriority: 100 }),
-            registry.createEntry("separator", { separator: "pipe" }),
-            registry.createEntry("cost", { responsivePriority: 10 }),
-            registry.createEntry("separator", { separator: "pipe" }),
-            registry.createEntry("git-branch", { responsivePriority: 90 }),
-          ],
-        ],
-      },
-      data,
-      45,
-    );
-    expect(line).toContain("model claude-sonnet-4-5");
-    expect(line).toContain("git main");
-    expect(line).not.toContain("cost");
-    expect(line).not.toContain("|");
-  });
   it("respects width", () => {
     const line = renderStatusline(plainConfig, data, 20);
     expect(visibleWidth(line)).toBeLessThanOrEqual(20);

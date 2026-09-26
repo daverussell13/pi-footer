@@ -7,7 +7,7 @@ export const TotalTimeWidget = defineWidget({
   category: "Session",
   description: "Live wall-clock time since first session entry",
   dependencies: ["metrics"],
-  baseOptions: ["responsivePriority", "raw", "icon"],
+  baseOptions: ["raw", "icon"],
   baseOptionDefaults: {},
   properties: [],
   icons: { emoji: "⏳", nerd: "󱎫", text: "total" },

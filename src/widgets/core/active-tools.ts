@@ -6,7 +6,7 @@ export const ActiveToolsWidget = defineWidget({
   category: "Core",
   description: "Active tool count",
   dependencies: ["activeToolCount"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon", "text"],
+  baseOptions: ["raw", "hideWhenZero", "icon", "text"],
   baseOptionDefaults: { hideWhenZero: true },
   properties: [],
   icons: { emoji: "🛠️", nerd: "󰒓", text: "tools" },

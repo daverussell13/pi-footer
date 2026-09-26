@@ -6,7 +6,7 @@ export const GitCleanStatusWidget = defineWidget({
   category: "Git",
   description: "Clean/dirty state",
   dependencies: ["git"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "✅", nerd: "󰄬", text: "git" },

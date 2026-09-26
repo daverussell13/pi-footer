@@ -6,7 +6,7 @@ export const GitUnstagedWidget = defineWidget({
   category: "Git",
   description: "Unstaged file count",
   dependencies: ["git"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon", "text"],
+  baseOptions: ["raw", "hideWhenZero", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "📝", nerd: "±", text: "unstaged" },

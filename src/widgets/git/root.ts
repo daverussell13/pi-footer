@@ -6,7 +6,7 @@ export const GitRootDirWidget = defineWidget({
   category: "Git",
   description: "Repository root directory name",
   dependencies: ["git"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "📦", nerd: "", text: "repo" },

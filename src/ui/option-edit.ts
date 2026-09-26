@@ -42,9 +42,9 @@ export function applyOptionField(
     return "changed";
   }
   if (field.kind === "number") {
-    if (property?.kind !== "number" && field.id !== "responsivePriority") return "unchanged";
-    const min = field.min ?? property?.options?.min ?? 1;
-    const max = field.max ?? property?.options?.max ?? 99;
+    if (property?.kind !== "number") return "unchanged";
+    const min = field.min ?? property.options?.min ?? 1;
+    const max = field.max ?? property.options?.max ?? 99;
     const current = getNumberField(widget, field.id) ?? min;
     metadataSetNumberField(widget, field.id, Math.min(max, Math.max(min, current + delta)));
     return "changed";
@@ -79,7 +79,6 @@ function metadataSetNumberField(widget: Widget, id: string, value: number): void
   const properties: readonly WidgetProperty[] = registry.spec(widget.type).properties;
   const property = properties.find((item) => item.id === id);
   if (property?.kind === "number") widget.update({ [id]: value });
-  else if (id === "responsivePriority") widget.update({ responsivePriority: value });
 }
 
 function isMetadataBooleanField(widget: Widget, id: string): boolean {

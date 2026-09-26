@@ -1,13 +1,9 @@
 import { COLOR_LEVEL_VALUES, type ColorLevel } from "../colors.js";
-import {
-  RESPONSIVE_MODE_VALUES,
-  TERMINAL_WIDTH_MODE_VALUES,
-  type StatuslineSettings,
-} from "../types.js";
+import { TERMINAL_WIDTH_MODE_VALUES, type StatuslineSettings } from "../types.js";
 import { cycle } from "./helpers.js";
-import { COLOR_LEVEL_LABELS, RESPONSIVE_MODE_LABELS, WIDTH_MODE_LABELS } from "./model.js";
+import { COLOR_LEVEL_LABELS, WIDTH_MODE_LABELS } from "./model.js";
 
-export const TERMINAL_MENU_ACTIONS = ["width-mode", "responsive-mode", "color-level"] as const;
+export const TERMINAL_MENU_ACTIONS = ["width-mode", "color-level"] as const;
 
 type TerminalMenuAction = (typeof TERMINAL_MENU_ACTIONS)[number];
 
@@ -16,7 +12,6 @@ export const TERMINAL_MENU_HINT = "↑/↓ option • ←/→ change • esc bac
 export function terminalMenuFields(config: StatuslineSettings): string[] {
   return [
     `Terminal Width: ${WIDTH_MODE_LABELS[config.terminal.widthMode]}`,
-    `Responsive behavior: ${RESPONSIVE_MODE_LABELS[config.terminal.responsiveMode]}`,
     `Color Level: ${COLOR_LEVEL_LABELS[config.terminal.colorLevel]}`,
   ];
 }
@@ -30,13 +25,6 @@ export function nextTerminalWidthMode(
   delta: number,
 ): StatuslineSettings["terminal"]["widthMode"] {
   return cycle(TERMINAL_WIDTH_MODE_VALUES, config.terminal.widthMode, delta);
-}
-
-export function nextTerminalResponsiveMode(
-  config: StatuslineSettings,
-  delta: number,
-): StatuslineSettings["terminal"]["responsiveMode"] {
-  return cycle(RESPONSIVE_MODE_VALUES, config.terminal.responsiveMode, delta);
 }
 
 export function nextTerminalColorLevel(config: StatuslineSettings, delta: number): ColorLevel {

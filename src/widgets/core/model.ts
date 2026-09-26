@@ -6,7 +6,7 @@ export const ModelWidget = defineWidget({
   category: "Core",
   description: "Active model id",
   dependencies: ["model", "provider"],
-  baseOptions: ["responsivePriority", "raw", "icon"],
+  baseOptions: ["raw", "icon"],
   baseOptionDefaults: {},
   properties: [
     {

@@ -8,7 +8,7 @@ export const ContextRemainingWidget = defineWidget({
   category: "Tokens",
   description: "Remaining context percentage",
   dependencies: ["contextTokens", "contextMaxTokens"],
-  baseOptions: ["responsivePriority", "raw", "icon"],
+  baseOptions: ["raw", "icon"],
   baseOptionDefaults: {},
   properties: contextColorProperties(),
   icons: { emoji: "🧩", nerd: "󰍛", text: "ctx left" },

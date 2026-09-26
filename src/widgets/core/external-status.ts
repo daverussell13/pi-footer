@@ -7,7 +7,7 @@ export const ExtensionStatusWidget = defineWidget({
   category: "Core",
   description: "Status value published by another pi extension through ctx.ui.setStatus",
   dependencies: ["getExtensionStatuses"],
-  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { hideWhenEmpty: true },
   properties: [
     {

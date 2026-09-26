@@ -6,7 +6,7 @@ export const CostWidget = defineWidget({
   category: "Tokens",
   description: "Estimated session cost",
   dependencies: ["metrics", "usingSubscription"],
-  baseOptions: ["responsivePriority", "raw", "icon"],
+  baseOptions: ["raw", "icon"],
   baseOptionDefaults: {},
   properties: [
     {
