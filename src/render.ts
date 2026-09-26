@@ -40,10 +40,7 @@ export function renderStatuslines(
 
 function padRight(left: string, right: string, width: number): string {
   const spaces = Math.max(1, width - visibleWidth(left) - visibleWidth(right));
-  // Widget output normally closes its styles, but explicit reset keeps flex padding neutral
-  // when a terminal or third-party ANSI string leaves a background color active.
-  const reset = "\x1b[0m";
-  return truncateToWidth(`${left}${reset}${" ".repeat(spaces)}${reset}${right}`, width, "…");
+  return truncateToWidth(`${left}${" ".repeat(spaces)}${right}`, width, "…");
 }
 
 interface RenderedSegment {
