@@ -6,7 +6,7 @@ export const GitRemoteWidget = defineWidget({
   category: "Git",
   description: "Origin remote",
   dependencies: ["git"],
-  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "🌐", nerd: "󰊢", text: "remote" },

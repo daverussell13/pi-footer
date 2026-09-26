@@ -6,7 +6,7 @@ export const CompactionsWidget = defineWidget({
   category: "Session",
   description: "Compaction summary count",
   dependencies: ["metrics"],
-  baseOptions: ["raw", "icon"],
+  baseOptions: ["responsivePriority", "raw", "icon"],
   baseOptionDefaults: {},
   properties: [],
   icons: { emoji: "🗜️", nerd: "󰁨", text: "compactions" },

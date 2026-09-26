@@ -7,7 +7,7 @@ export const OutputTokensWidget = defineWidget({
   category: "Tokens",
   description: "Output token total",
   dependencies: ["metrics"],
-  baseOptions: ["raw", "hideWhenZero", "icon"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [tokenFormatStyleProperty()],
   icons: { emoji: "⬇️", nerd: "󰧚", text: "out" },

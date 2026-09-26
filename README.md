@@ -119,7 +119,7 @@ Main menu:
 
 - **Edit lines** — add, clone, move, delete, and select pi-footer rows.
 - **Edit colors** — choose a line, then configure widget foreground/background/bold.
-- **Terminal Options** — configure terminal width behavior and color level.
+- **Terminal Options** — configure terminal width behavior, responsive behavior, and color level.
 - **Global Overrides** — choose presets, separators, icon mode, minimalist mode, and global separator colors.
 - **Pi extensions** — choose which published extension statuses appear in the extension status row.
 - **Save & Exit** — explicitly save the current configuration.
@@ -278,6 +278,10 @@ Global separator foreground/background colors apply only to automatic separators
 Separator widgets are independent. They have their own separator style and colors and are not affected by global separator colors.
 
 Powerline-oriented separator widget styles include hard transitions, soft transitions, and caps. The powerline presets use explicit separator widgets so transitions can be colored segment-by-segment.
+
+### Responsive behavior
+
+By default, narrow footer lines are truncated with an ellipsis. Set **Terminal Options → Responsive behavior** to **Hide low-priority widgets** to remove value widgets until the line fits. Each non-layout widget has a **Responsive priority** (0–100; default 50); lower values are removed first, and equal priorities remove later widgets first. Automatic separators are rebuilt after widgets disappear. If the remaining high-priority widgets still do not fit, pi-footer falls back to ellipsis truncation.
 
 ### Terminal width modes
 

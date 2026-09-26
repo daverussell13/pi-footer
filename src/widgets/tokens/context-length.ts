@@ -8,7 +8,7 @@ export const ContextLengthWidget = defineWidget({
   category: "Tokens",
   description: "Current context token count",
   dependencies: ["contextTokens", "contextMaxTokens"],
-  baseOptions: ["raw", "hideWhenZero", "icon"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [tokenFormatStyleProperty(), ...contextColorProperties()],
   icons: { emoji: "📏", nerd: "󰍛", text: "ctx len" },

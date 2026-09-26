@@ -6,7 +6,7 @@ export const ProviderWidget = defineWidget({
   category: "Core",
   description: "Active model provider",
   dependencies: ["provider"],
-  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: {},
   properties: [],
   icons: { emoji: "☁️", nerd: "󰒋", text: "provider" },

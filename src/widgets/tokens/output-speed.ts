@@ -7,7 +7,7 @@ export const OutputSpeedWidget = defineWidget({
   category: "Tokens",
   description: "Average output tokens per minute",
   dependencies: ["metrics"],
-  baseOptions: ["raw", "hideWhenZero", "icon"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [tokenFormatStyleProperty()],
   icons: { emoji: "⏬", nerd: "", text: "out/min" },

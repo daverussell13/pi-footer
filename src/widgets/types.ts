@@ -53,7 +53,13 @@ export interface WidgetProperty {
   };
 }
 
-export type WidgetBaseOption = "raw" | "hideWhenEmpty" | "hideWhenZero" | "text" | "icon";
+export type WidgetBaseOption =
+  | "raw"
+  | "hideWhenEmpty"
+  | "hideWhenZero"
+  | "text"
+  | "icon"
+  | "responsivePriority";
 
 export interface WidgetRenderOptions extends WidgetStyle {
   icons?: WidgetIconSet;

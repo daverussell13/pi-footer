@@ -13,6 +13,7 @@ import type { ScreenContext } from "../screen-context.js";
 import type { ScreenRender } from "../screen-render.js";
 import {
   nextTerminalColorLevel,
+  nextTerminalResponsiveMode,
   nextTerminalWidthMode,
   TERMINAL_MENU_ACTIONS,
   TERMINAL_MENU_HINT,
@@ -63,6 +64,14 @@ export class TerminalScreen extends Controller {
   private adjust(delta: number): void {
     if (terminalMenuAction(this.selected) === "width-mode") {
       this.ctx.state.store.settings.terminal.widthMode = nextTerminalWidthMode(
+        this.ctx.state.store.settings,
+        delta,
+      );
+      this.ctx.emitChange();
+      return;
+    }
+    if (terminalMenuAction(this.selected) === "responsive-mode") {
+      this.ctx.state.store.settings.terminal.responsiveMode = nextTerminalResponsiveMode(
         this.ctx.state.store.settings,
         delta,
       );

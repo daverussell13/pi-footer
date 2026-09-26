@@ -6,7 +6,7 @@ export const GitAheadBehindWidget = defineWidget({
   category: "Git",
   description: "Ahead/behind upstream counts",
   dependencies: ["git"],
-  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "↕️", nerd: "󰦻", text: "upstream" },

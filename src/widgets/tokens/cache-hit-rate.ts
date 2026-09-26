@@ -6,7 +6,7 @@ export const CacheHitRateWidget = defineWidget({
   category: "Tokens",
   description: "Session or latest turn cache hit percentage",
   dependencies: ["metrics", "turnMetrics"],
-  baseOptions: ["raw", "hideWhenZero", "icon"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [
     {

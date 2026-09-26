@@ -27,7 +27,7 @@ export const GitBranchWidget = defineWidget({
   category: "Git",
   description: "Current Git branch",
   dependencies: ["git"],
-  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [
     {

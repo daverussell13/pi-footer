@@ -8,7 +8,7 @@ export const ContextWidget = defineWidget({
   category: "Tokens",
   description: "Current context usage percentage",
   dependencies: ["contextTokens", "contextMaxTokens"],
-  baseOptions: ["raw", "icon"],
+  baseOptions: ["responsivePriority", "raw", "icon"],
   baseOptionDefaults: {},
   properties: contextColorProperties(),
   icons: { emoji: "🧩", nerd: "󰍛", text: "ctx" },

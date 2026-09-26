@@ -7,7 +7,7 @@ export const TotalTokensWidget = defineWidget({
   category: "Tokens",
   description: "Total token count",
   dependencies: ["metrics"],
-  baseOptions: ["raw", "hideWhenZero", "icon"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [tokenFormatStyleProperty()],
   icons: { emoji: "🔢", nerd: "󰓹", text: "tok" },

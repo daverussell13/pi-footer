@@ -10,6 +10,14 @@ export function fieldsForWidget(widget: Widget): OptionField[] {
   const fields: OptionField[] = [{ id: "enabled", label: "Enabled", kind: "boolean" }];
 
   for (const option of spec.baseOptions) {
+    if (option === "responsivePriority")
+      fields.push({
+        id: "responsivePriority",
+        label: "Responsive priority",
+        kind: "number",
+        min: 0,
+        max: 100,
+      });
     if (option === "raw") fields.push({ id: "raw", label: "Raw value only", kind: "boolean" });
     if (option === "hideWhenEmpty")
       fields.push({ id: "hideWhenEmpty", label: "Hide when empty", kind: "boolean" });
@@ -113,10 +121,15 @@ export function getBooleanField(widget: Widget, id: string): boolean {
 }
 
 export function getNumberField(widget: Widget, id: string): number | undefined {
-  const property = registry.spec(widget.type).properties.find((item) => item.id === id);
+  const spec = registry.spec(widget.type);
+  const property = spec.properties.find((item) => item.id === id);
   if (property?.kind === "number") {
     const value = widget.options[id];
     return typeof value === "number" ? value : Number(property.default);
+  }
+  if (spec.baseOptions.some((option) => option === id) && id === "responsivePriority") {
+    const value = widget.options.responsivePriority;
+    return typeof value === "number" ? value : 50;
   }
   return undefined;
 }

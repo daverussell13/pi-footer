@@ -6,7 +6,7 @@ export const UserMessagesWidget = defineWidget({
   category: "Session",
   description: "User message count",
   dependencies: ["metrics"],
-  baseOptions: ["raw", "hideWhenZero", "icon", "text"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon", "text"],
   baseOptionDefaults: {},
   properties: [],
   icons: { emoji: "👤", nerd: "", text: "user" },

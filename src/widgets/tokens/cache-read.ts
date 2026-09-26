@@ -7,7 +7,7 @@ export const CacheReadWidget = defineWidget({
   category: "Tokens",
   description: "Cache read token total",
   dependencies: ["metrics"],
-  baseOptions: ["raw", "hideWhenZero", "icon"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [tokenFormatStyleProperty()],
   icons: { emoji: "📖", nerd: "󰆼", text: "cache read" },

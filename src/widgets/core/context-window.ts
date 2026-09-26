@@ -8,7 +8,7 @@ export const ContextWindowWidget = defineWidget({
   category: "Core",
   description: "Model context window size",
   dependencies: ["contextTokens", "contextMaxTokens"],
-  baseOptions: ["raw", "hideWhenZero", "icon"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [tokenFormatStyleProperty(), ...contextColorProperties()],
   icons: { emoji: "🪟", nerd: "󰍛", text: "window" },

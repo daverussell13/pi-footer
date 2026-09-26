@@ -7,7 +7,7 @@ export const TotalSpeedWidget = defineWidget({
   category: "Tokens",
   description: "Average total tokens per minute",
   dependencies: ["metrics"],
-  baseOptions: ["raw", "hideWhenZero", "icon"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [tokenFormatStyleProperty()],
   icons: { emoji: "⚡", nerd: "↕", text: "tok/min" },

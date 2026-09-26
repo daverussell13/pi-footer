@@ -48,6 +48,77 @@ interface RenderedSegment {
   segment: string;
 }
 
+function isLayoutWidget(entry: RenderedSegment): boolean {
+  return ["separator", "spacer", "flex-separator"].includes(entry.widget.type);
+}
+
+function responsiveSegments(
+  rendered: readonly RenderedSegment[],
+  settings: StatuslineSettings,
+  width: number,
+): RenderedSegment[] {
+  if (settings.terminal.responsiveMode !== "hide-low-priority") return [...rendered];
+
+  const hidden = new Set<string>();
+  const candidates = rendered
+    .filter((entry) => entry.segment.length > 0 && !isLayoutWidget(entry))
+    .sort(
+      (left, right) =>
+        (Number(left.widget.options.responsivePriority) || 50) -
+          (Number(right.widget.options.responsivePriority) || 50) ||
+        rendered.indexOf(right) - rendered.indexOf(left),
+    );
+
+  for (const candidate of candidates) {
+    const visible = cleanLayout(
+      rendered.filter((entry) => !hidden.has(entry.widget.id)),
+      rendered,
+    );
+    if (visibleLineWidth(visible, settings) <= width) return visible;
+    hidden.add(candidate.widget.id);
+  }
+  return cleanLayout(rendered.filter((entry) => !hidden.has(entry.widget.id)), rendered);
+}
+
+function cleanLayout(
+  entries: readonly RenderedSegment[],
+  allEntries: readonly RenderedSegment[] = entries,
+): RenderedSegment[] {
+  const visibleIds = new Set(entries.map((entry) => entry.widget.id));
+  return entries.filter((entry, index) => {
+    if (entry.segment.length === 0) return false;
+    if (entry.widget.type === "flex-separator") {
+      return (
+        entries.slice(0, index).some((item) => !isLayoutWidget(item) && item.segment.length > 0) &&
+        entries.slice(index + 1).some((item) => !isLayoutWidget(item) && item.segment.length > 0)
+      );
+    }
+    if (entry.widget.type !== "separator" && entry.widget.type !== "spacer") return true;
+    const originalIndex = allEntries.findIndex((item) => item.widget.id === entry.widget.id);
+    const left = allEntries
+      .slice(0, originalIndex)
+      .reverse()
+      .find((item) => !isLayoutWidget(item) && item.segment.length > 0);
+    const right = allEntries
+      .slice(originalIndex + 1)
+      .find((item) => !isLayoutWidget(item) && item.segment.length > 0);
+    const hasLeft = left !== undefined && visibleIds.has(left.widget.id);
+    const hasRight = right !== undefined && visibleIds.has(right.widget.id);
+    const separator = String(entry.widget.options.separator ?? "");
+    if (separator === "powerline-start") return hasRight;
+    if (separator === "powerline-end") return hasLeft;
+    return hasLeft && hasRight;
+  });
+}
+
+function visibleLineWidth(entries: readonly RenderedSegment[], settings: StatuslineSettings): number {
+  const flexIndex = entries.findIndex((entry) => entry.widget.type === "flex-separator");
+  if (flexIndex === -1) return visibleWidth(joinSegments(entries, settings));
+  const left = joinSegments(entries.slice(0, flexIndex), settings);
+  const right = joinSegments(entries.slice(flexIndex + 1), settings);
+  return visibleWidth(left) + (right ? 1 + visibleWidth(right) : 0);
+}
+
 interface RenderLineContext {
   baseCtx: BaseWidgetContext;
   data: StatuslineData;
@@ -75,13 +146,14 @@ function renderLine(
         ) ?? "",
     }));
 
-  const flexIndex = rendered.findIndex((entry) => entry.widget.type === "flex-separator");
+  const responsive = responsiveSegments(rendered, settings, width);
+  const flexIndex = responsive.findIndex((entry) => entry.widget.type === "flex-separator");
   if (flexIndex === -1) {
-    return truncateToWidth(joinSegments(rendered, settings), width, "…");
+    return truncateToWidth(joinSegments(responsive, settings), width, "…");
   }
 
-  const left = joinSegments(rendered.slice(0, flexIndex), settings);
-  const right = joinSegments(rendered.slice(flexIndex + 1), settings);
+  const left = joinSegments(responsive.slice(0, flexIndex), settings);
+  const right = joinSegments(responsive.slice(flexIndex + 1), settings);
   return right ? padRight(left, right, width) : truncateToWidth(left, width, "…");
 }
 

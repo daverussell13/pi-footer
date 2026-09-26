@@ -27,7 +27,7 @@ export const CwdWidget = defineWidget({
   category: "Core",
   description: "Current working directory",
   dependencies: ["cwd"],
-  baseOptions: ["raw", "icon"],
+  baseOptions: ["responsivePriority", "raw", "icon"],
   baseOptionDefaults: {},
   properties: [
     {

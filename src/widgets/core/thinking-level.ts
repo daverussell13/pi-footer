@@ -6,7 +6,7 @@ export const ThinkingLevelWidget = defineWidget({
   category: "Core",
   description: "Pi reasoning/thinking level for reasoning-capable models",
   dependencies: ["thinkingLevel"],
-  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "🧠", nerd: "󰈈", text: "thinking" },

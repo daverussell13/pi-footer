@@ -6,7 +6,7 @@ export const GitDeletionsWidget = defineWidget({
   category: "Git",
   description: "Uncommitted deletion count",
   dependencies: ["git"],
-  baseOptions: ["raw", "hideWhenZero", "icon", "text"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon", "text"],
   baseOptionDefaults: { text: "" },
   properties: [],
   icons: { emoji: "➖", nerd: "-", text: "del" },

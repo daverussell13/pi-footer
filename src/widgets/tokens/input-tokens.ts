@@ -7,7 +7,7 @@ export const InputTokensWidget = defineWidget({
   category: "Tokens",
   description: "Input token total",
   dependencies: ["metrics"],
-  baseOptions: ["raw", "hideWhenZero", "icon"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon"],
   baseOptionDefaults: {},
   properties: [tokenFormatStyleProperty()],
   icons: { emoji: "⬆️", nerd: "󰌌", text: "in" },

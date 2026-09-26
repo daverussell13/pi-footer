@@ -6,7 +6,7 @@ export const ToolResultsWidget = defineWidget({
   category: "Session",
   description: "Tool result count",
   dependencies: ["metrics"],
-  baseOptions: ["raw", "hideWhenZero", "icon", "text"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenZero", "icon", "text"],
   baseOptionDefaults: {},
   properties: [],
   icons: { emoji: "🛠️", nerd: "󰒓", text: "tools" },

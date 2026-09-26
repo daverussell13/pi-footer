@@ -6,7 +6,7 @@ export const SessionNameWidget = defineWidget({
   category: "Core",
   description: "Pi session name",
   dependencies: ["sessionName"],
-  baseOptions: ["raw", "hideWhenEmpty", "icon", "text"],
+  baseOptions: ["responsivePriority", "raw", "hideWhenEmpty", "icon", "text"],
   baseOptionDefaults: { hideWhenEmpty: true },
   properties: [],
   icons: { emoji: "🏷️", nerd: "󰍹", text: "session" },

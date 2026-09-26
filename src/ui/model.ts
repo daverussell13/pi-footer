@@ -1,5 +1,5 @@
 import type { ColorLevel } from "../colors.js";
-import type { IconMode, TerminalWidthMode } from "../types.js";
+import type { IconMode, ResponsiveMode, TerminalWidthMode } from "../types.js";
 import type { WidgetProperty } from "../widgets/types.js";
 
 export const CONFIG_UI_HEIGHT_RATIO = 1;
@@ -9,6 +9,10 @@ export const WIDTH_MODE_LABELS: Record<TerminalWidthMode, string> = {
   "full-minus-40": "Full width minus 40",
 };
 
+export const RESPONSIVE_MODE_LABELS: Record<ResponsiveMode, string> = {
+  truncate: "Truncate (current)",
+  "hide-low-priority": "Hide low-priority widgets",
+};
 export const COLOR_LEVEL_LABELS: Record<ColorLevel, string> = {
   truecolor: "Truecolor",
   ansi256: "256 Color",
