@@ -475,6 +475,27 @@ describe("renderStatusline", () => {
     expect(line).toContain("cost $0.1234");
   });
 
+  it("resets ANSI styling across flex padding", () => {
+    const line = renderStatusline(
+      {
+        ...DEFAULT_CONFIG,
+        separator: "none",
+        terminal: { ...DEFAULT_CONFIG.terminal, colorLevel: "ansi256" },
+        lines: [
+          [
+            registry.createEntry("custom-text", { text: "left", bg: "ansi256:240" }),
+            registry.createEntry("flex-separator"),
+            registry.createEntry("custom-text", { text: "right", bg: "ansi256:250" }),
+          ],
+        ],
+      },
+      data,
+      40,
+    );
+    const reset = "\x1b[0m";
+    expect(line).toContain(reset);
+    expect(line).toContain(`${reset}${" ".repeat(31)}${reset}`);
+  });
   it("hides low-priority widgets when responsive behavior is enabled", () => {
     const line = renderStatusline(
       {
